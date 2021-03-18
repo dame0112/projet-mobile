@@ -11,8 +11,7 @@
           <ion-title size="large">home</ion-title>
         </ion-toolbar>
       </ion-header>
-    
-      <ExploreContainer name="acceuil" />
+
     </ion-content>
   </ion-page>
 </template>
@@ -21,10 +20,10 @@
 import { db } from '../firebaseDb';
 
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
 
 export default {
   name: 'home',
+  components: {IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
   ionViewWillEnter() {
     this.getinfo();
   },
@@ -37,10 +36,7 @@ export default {
           console.log(doc.id, " => ", doc.data());
         });
       });
-    },
-
-    components: {ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage}
-
+    }
   }
 }
 
