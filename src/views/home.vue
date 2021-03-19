@@ -14,43 +14,28 @@
       <ion-header>
         <img src="street.jpg" alt="image of a street court" width="500" height="600">
       </ion-header>
-     <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Adresse</th>
-                        <th>Etat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="court in courts" :key="court.key">
-                        <td>{{ court.name }}</td>
-                        <td>{{ court.adresse }}</td>
-                        <td>{{ court.etat }}</td>
-                        <td>
-                            <router-link :to="{name: 'edit', params: { id: court.key }}" class="btn btn-primary">Edit
-                            </router-link>
-                            <button @click.prevent="deleteCourt(court.key)" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+          <ion-list>
+
+         <ion-item v-for="court in courts" :key="court.key">
+
+           <ion-label>
+             {{ court.name }} <br> {{ court.adresse }} . {{ court.etat }}
+           </ion-label>
+           <button @click="$router.push('CourtEdit/' + court.key)" class="btn btn-danger">edit</button>
+           <button @click.prevent="deleteCourt(court.key)" class="btn btn-danger">Delete</button>
+         </ion-item>
+
+      </ion-list>
     </ion-content>
   </ion-page>
-
-  <ion-list>
-    <ion-item v-for="char in info" :key="char.id">
-      <ion-label>
-        {{ char.name }} - {{ char.adresse }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
 </template>
 
 <script>
-import { db } from '../firebaseDb';
+
 
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { db } from '../firebaseDb';
 
 export default {
   name: 'home',
@@ -65,11 +50,13 @@ export default {
                 courts: []
             }
         },
+
+
         created() {
             db.collection('courts').onSnapshot((snapshotChange) => {
                 this.Courts = [];
                 snapshotChange.forEach((doc) => {
-                    this.Courts.push({
+                    this.courts.push({
                         key: doc.id,
                         name: doc.data().name,
                         adresse: doc.data().adresse,
@@ -78,16 +65,23 @@ export default {
                 });
             })
         },
-  ionViewWillEnter() {
-    this.getinfo();
+          ionViewWillEnter() {
+            this.court = [];
+            this.getcourt();
   },
   methods: {
-    getinfo() {
+    getcourt() {
       console.log("hello") ;
       db.collection("courts").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, " => ", doc.data());
+           this.court.push({
+            key: doc.id,
+            name: doc.data().name,
+            adresse: doc.data().adresse,
+            etat: doc.data().etat,
+               })
         });
       });
     },
@@ -95,6 +89,7 @@ export default {
               if (window.confirm("Do you really want to delete?")) {
                 db.collection("courts").doc(id).delete().then(() => {
                     console.log("Document deleted!");
+                    this.$router.push('/');
                 })
                 .catch((error) => {
                     console.error(error);
