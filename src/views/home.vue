@@ -17,7 +17,6 @@
                         <th>Name</th><br>
                         <th>Adresse</th><br>
                         <th>Etat</th><br>
-                        <th>Details</th><br>
                     </tr>
                 </thead>
                 <tbody>
