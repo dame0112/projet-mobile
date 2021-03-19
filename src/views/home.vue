@@ -22,7 +22,7 @@
            <ion-label>
              {{ court.name }} <br> {{ court.adresse }} . {{ court.etat }}
            </ion-label>
-           <button @click="$router.push('CourtEdit/' + court.key)" class="btn btn-danger">edit</button>
+           <button @click="$router.push('/tabs/CourtEdit/' + court.key)" class="btn btn-danger">edit</button>
            <button @click.prevent="deleteCourt(court.key)" class="btn btn-danger">Delete</button>
          </ion-item>
 

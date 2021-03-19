@@ -24,7 +24,7 @@ const routes = [
         component: () => import('@/views/street_court.vue')
       },
       {
-        path: 'map',
+        path: 'CourtEdit/:id',
         component: () => import('@/views/map.vue')
       }
     ]
