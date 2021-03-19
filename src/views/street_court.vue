@@ -33,7 +33,7 @@
                 </div>
             </form>
       
-      <ExploreContainer name="differents street terrains :" />
+      <ExploreContainer name="differents street courts :" />
     </ion-content>
   </ion-page>
 </template>
