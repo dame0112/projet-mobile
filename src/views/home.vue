@@ -35,11 +35,11 @@
             </table>
     </ion-content>
   </ion-page>
-  <!-- List of Input Items -->
+
   <ion-list>
     <ion-item v-for="char in info" :key="char.id">
       <ion-label>
-        {{ char.name }} - {{ char.etat }}
+        {{ char.name }} - {{ char.adresse }}
       </ion-label>
     </ion-item>
   </ion-list>

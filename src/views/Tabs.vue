@@ -7,7 +7,7 @@
           <ion-label>home</ion-label>
         </ion-tab-button>
           
-        <ion-tab-button tab="street courts" href="/tabs/street_courts">
+        <ion-tab-button tab="street_courts" href="/tabs/street_courts">
           <ion-icon :icon="ellipse" />
           <ion-label>street_courts</ion-label>
         </ion-tab-button>

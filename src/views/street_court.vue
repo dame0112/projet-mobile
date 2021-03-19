@@ -2,13 +2,13 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>street courts</ion-title>
+        <ion-title>street_courts</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">street courts</ion-title>
+          <ion-title size="large">street_courts</ion-title>
         </ion-toolbar>
       </ion-header>
 

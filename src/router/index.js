@@ -17,15 +17,15 @@ const routes = [
       },
       {
         path: 'home',
-        component: () => import('@/views/Tab1.vue')
+        component: () => import('@/views/home.vue')
       },
       {
         path: 'street_courts',
-        component: () => import('@/views/Tab2.vue')
+        component: () => import('@/views/street_court.vue')
       },
       {
         path: 'map',
-        component: () => import('@/views/Tab3.vue')
+        component: () => import('@/views/map.vue')
       }
     ]
   }
