@@ -12,7 +12,6 @@
         </ion-toolbar>
       </ion-header>
       <ion-header>
-        <img src="street.jpg" alt="image of a street court" width="500" height="600">
       </ion-header>
 
           <ion-list>
