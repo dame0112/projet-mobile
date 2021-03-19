@@ -2,38 +2,40 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>map</ion-title>
+        <ion-title>update</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">map</ion-title>
+         <ion-title size="large">update</ion-title>
         </ion-toolbar>
       </ion-header>
 
-       <form @submit.prevent="onUpdateForm">
+    <br>  <div class="col-md-5">
+            <center><h3 class="text-center">Update ground</h3></center><br>
+            <form @submit.prevent="onUpdateForm">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" v-model="court.name" required>
-                </div>
+                  <center> <label>Name</label></center>
+                   <center><input type="text" class="form-control" v-model="court.name" required></center>
+                </div><br>
 
                 <div class="form-group">
-                    <label>adresse</label>
-                    <input type="adresse" class="form-control" v-model="court.adresse" required>
-                </div>
+                   <center><label>adresse</label></center>
+                    <center><input type="adresse" class="form-control" v-model="court.adresse" required></center>
+                </div><br>
 
                 <div class="form-group">
-                    <label>etat</label>
-                    <input type="text" class="form-control" v-model="court.etat" required>
-                </div>
+                    <center><label>etat</label></center>
+                    <center><input type="text" class="form-control" v-model="court.etat" required></center>
+                </div><br><br>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Add Court</button>
+                    <center><button class="btn btn-primary btn-block">update</button></center>
                 </div>
             </form>
-      
-      <ExploreContainer name="map for differents courts" />
+        </div>
+
     </ion-content>
   </ion-page>
 </template>
@@ -41,11 +43,11 @@
 <script>
 import { db } from '../firebaseDb';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+
 
 export default  {
   name: 'map',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+  components: {  IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
   data() {
             return {
                 court: {
@@ -56,6 +58,8 @@ export default  {
             let dbRef = db.collection('courts').doc(this.$route.params.id);
             dbRef.get().then((doc) => {
                 this.court = doc.data();
+                console
+              console.log();
             }).catch((error) => {
                 console.log(error)
             })

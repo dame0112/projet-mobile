@@ -11,12 +11,15 @@
           <ion-title size="large">home</ion-title>
         </ion-toolbar>
       </ion-header>
+      <ion-header>
+        <img src="street.jpg" alt="image of a street court" width="500" height="600">
+      </ion-header>
      <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th><br>
-                        <th>Adresse</th><br>
-                        <th>Etat</th><br>
+                        <th>Name</th>
+                        <th>Adresse</th>
+                        <th>Etat</th>
                     </tr>
                 </thead>
                 <tbody>

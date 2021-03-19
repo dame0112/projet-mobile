@@ -11,29 +11,30 @@
           <ion-title size="large">street_courts</ion-title>
         </ion-toolbar>
       </ion-header>
-
+    <div class="col-md-5">
+           <center> <h3 class="text-center">Add ground</h3></center><br><br>
          <form @submit.prevent="onFormSubmit">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" v-model="court.name" required>
-                </div>
+                    <center><label>Name</label></center>
+                    <center><input type="text" class="form-control" v-model="court.name" required></center>
+                </div><br>
 
                 <div class="form-group">
-                    <label>adresse</label>
-                    <input type="adresse" class="form-control" v-model="court.adresse" required>
-                </div>
+                   <center> <label>adresse</label></center>
+                  <center><input type="adresse" class="form-control" v-model="court.adresse" required></center>
+                </div><br>
 
                 <div class="form-group">
-                    <label>etat</label>
-                    <input type="text" class="form-control" v-model="court.etat" required>
-                </div>
+                    <center><label>etat</label></center>
+                    <center><input type="text" class="form-control" v-model="court.etat" required></center>
+                </div><br><br>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Add Court</button>
-                </div>
+                   <center> <button class="btn btn-primary btn-block">Add ground</button></center>
+                </div><br>
             </form>
-      
-      <ExploreContainer name="differents street courts :" />
+    </div>
+
     </ion-content>
   </ion-page>
 </template>
@@ -41,11 +42,11 @@
 <script>
     import { db } from '../firebaseDb';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+
 
 export default  {
    name: 'street_courts',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+  components: {  IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
     data() {
             return {
                 court: {
